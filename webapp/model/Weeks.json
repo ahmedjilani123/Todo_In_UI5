@@ -1,0 +1,30 @@
+[
+    {
+        "Week":"Week 1",
+        "Initial":12,
+        "Process":5,
+        "Complete":7,
+        "Month":"13-04-2025"
+    },
+    {
+        "Week":"Week 2",
+        "Initial":2,
+        "Process":8,
+        "Complete":23,
+        "Month":"13-04-2025"
+    },
+    {
+        "Week":"Week 3",
+        "Initial":6,
+        "Process":3,
+        "Complete":11,
+        "Month":"13-04-2025"
+    },
+    {
+        "Week":"Week 4",
+        "Initial":3,
+        "Process":6,
+        "Complete":12,
+        "Month":"13-04-2025"
+    }
+]

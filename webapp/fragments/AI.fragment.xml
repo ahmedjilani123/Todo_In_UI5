@@ -1,0 +1,22 @@
+<core:FragmentDefinition  xmlns:tnt="sap.tnt"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Popover contentHeight="200px" contentWidth="auto"
+		id="myPopover"
+		showHeader="true" title="Task Mind"
+		class="sapUiResponsivePadding--header sapUiResponsivePadding--footer"
+		placement="Bottom"
+		>
+
+		<footer>
+			<OverflowToolbar >
+            <!-- <SearchField search="SearchTaskValuePress" placeholder="Task Title"></SearchField> -->
+           <Input showValueHelp="true" valueHelpIconSrc="sap-icon://paper-plane" valueHelpRequest="SearchTaskValuePress"></Input>
+            </OverflowToolbar>
+           
+		</footer>
+       <HBox justifyContent="Center" >
+       <Text text="No Response"></Text>
+       </HBox>
+	</Popover>
+</core:FragmentDefinition>

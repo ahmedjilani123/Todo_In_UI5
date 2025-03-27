@@ -1,0 +1,233 @@
+<mvc:View
+    xmlns:dnd="sap.ui.core.dnd"
+    xmlns:layout="sap.ui.layout"
+    controllerName="td.mastertodo.controller.initialToDo"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <headerContent>
+            <Button text="Create New Task"  press="OpenCreateTodoPress"/>
+            <Switch
+                state="{viewModel>/isDarkMode}"
+                change="SWitchThemePress"
+                customTextOff="🌞"
+                customTextOn="🌚"
+            />
+        </headerContent>
+        <subHeader>
+            <OverflowToolbar>
+                <SearchField
+                    placeholder="Search Your Todo Task"
+                    search="SearchAllTaskPress"
+                />
+            </OverflowToolbar>
+        </subHeader>
+        <content>
+            <layout:Grid
+                defaultSpan="XL4 L4 M6 S12"
+                class="sapUiSmallMarginTop"
+            >
+                <!-- To-Do List  -->
+                <List
+                    id="TodoCreateID"
+                    class="TodoList"
+                    items="{TodoData>/Todo}"
+                    footerText=" "
+                    noDataText="No New Task"
+                >
+                    <headerToolbar>
+                        <OverflowToolbar design="Solid">
+                            <Title text="To Do" />
+                            <ToolbarSpacer />
+                        </OverflowToolbar>
+                    </headerToolbar>
+                    <dragDropConfig>
+                        <dnd:DragInfo
+                            groupName="todo"
+                            sourceAggregation="items"
+                        />
+                        <dnd:DropInfo
+                            groupName="done"
+                            drop="InitialTodoTaskPress"
+                        />
+                        <dnd:DropInfo
+                            groupName="inprogress"
+                            drop="InitialTodoTaskPress"
+                        />
+                    </dragDropConfig>
+                    <items>
+                        <CustomListItem
+                            class="TodoWarning"
+                            type="Active"
+                            highlight="{TodoData>Status}"
+                        >
+                            <HBox
+                                 class="sapUiSmallMargin"
+                                wrap="Wrap"
+                            >
+                                <HBox
+                                   
+                                    justifyContent="SpaceBetween"
+                                    width="100%"
+                                >
+                                    <Title
+                                        text="{TodoData>Title}"
+                                        wrappingType="Hyphenated"
+                                        wrapping="true"
+                                    />
+                                    <Text
+                                        text="{TodoData>Date}"
+                                        wrappingType="Hyphenated"
+                                        wrapping="true"
+                                    />
+                                </HBox>
+                                <Text
+                                    text="{TodoData>Description}"
+                                    wrappingType="Hyphenated"
+                                    wrapping="true"
+                                />
+                            </HBox>
+                        </CustomListItem>
+                    </items>
+                </List>
+
+                <!-- In Doing List -->
+                <List
+                    id="TodoProcessID"
+                    class="ProcessList"
+                    items="{TodoData>/Process}"
+                    noDataText="No Process Task"
+                    footerText=" "
+                    growing="true"
+                    growingThreshold="10"
+                >
+                    <headerToolbar>
+                        <OverflowToolbar design="Solid">
+                            <Title text="Process Task" />
+                        </OverflowToolbar>
+                    </headerToolbar>
+                    <dragDropConfig>
+                        <dnd:DragInfo
+                            groupName="inprogress"
+                            sourceAggregation="items"
+                        />
+                        <dnd:DropInfo
+                            groupName="todo"
+                            drop="ProcessTaskPress"
+                        />
+                        <dnd:DropInfo
+                            groupName="done"
+                            drop="ProcessTaskPress"
+                        />
+                    </dragDropConfig>
+                    <items>
+                        <CustomListItem
+                            class="TodoInformation"
+                            type="Active"
+                            highlight="{TodoData>Status}"
+                        >
+                            <!-- isible="{= ${TodoData>Status} ==='Information' ? true : false}" -->
+                           <HBox
+                                 class="sapUiSmallMargin"
+                                wrap="Wrap"
+                            >
+                                <HBox
+                                   
+                                    justifyContent="SpaceBetween"
+                                    width="100%"
+                                >
+                                    <Title
+                                        text="{TodoData>Title}"
+                                        wrappingType="Hyphenated"
+                                        wrapping="true"
+                                    />
+                                    <Text
+                                        text="{TodoData>Date}"
+                                        wrappingType="Hyphenated"
+                                        wrapping="true"
+                                    />
+                                </HBox>
+                                <Text
+                                    text="{TodoData>Description}"
+                                    wrappingType="Hyphenated"
+                                    wrapping="true"
+                                />
+                            </HBox>
+                        </CustomListItem>
+                    </items>
+                </List>
+
+                <!-- Done List -->
+
+                <List
+                    id="TodoCompleteID"
+                    class="CompleteList"
+                    items="{TodoData>/Complete}"
+                    noDataText="No Any Complete Task"
+                    footerText=" "
+                    growing="true"
+                    growingThreshold="10"
+                    growingTriggerText="Total Task "
+                >
+                    <headerToolbar>
+                        <OverflowToolbar design="Solid">
+                            <Title text="Complete Task" />
+                        </OverflowToolbar>
+                    </headerToolbar>
+                    <dragDropConfig>
+                        <dnd:DragInfo
+                            groupName="done"
+                            sourceAggregation="items"
+                        />
+                        <dnd:DropInfo
+                            groupName="inprogress"
+                            drop="onDropToInProgress3"
+                        />
+                        <dnd:DropInfo
+                            groupName="todo"
+                            drop="onDropToInProgress3"
+                        />
+                    </dragDropConfig>
+                    <items>
+                        <CustomListItem
+                            class="TodoSuccess"
+                            type="Active"
+                            highlight="{TodoData>Status}"
+                        >
+                           <HBox
+                                 class="sapUiSmallMargin"
+                                wrap="Wrap"
+                            >
+                                <HBox
+                                   
+                                    justifyContent="SpaceBetween"
+                                    width="100%"
+                                >
+                                    <Title
+                                        text="{TodoData>Title}"
+                                        wrappingType="Hyphenated"
+                                        wrapping="true"
+                                    />
+                                    <Text
+                                        text="{TodoData>Date}"
+                                        wrappingType="Hyphenated"
+                                        wrapping="true"
+                                    />
+                                </HBox>
+                                <Text
+                                    text="{TodoData>Description}"
+                                    wrappingType="Hyphenated"
+                                    wrapping="true"
+                                />
+                            </HBox>
+                        </CustomListItem>
+                    </items>
+                </List>
+            </layout:Grid>
+        </content>
+    </Page>
+</mvc:View>

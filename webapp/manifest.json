@@ -1,0 +1,153 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "td.mastertodo",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "dataSources": {
+      "Todo":{
+        "uri": "./model/Todo.json",
+        "type": "JSON"
+      },
+      "ChartData":{
+        "uri": "./model/Weeks.json",
+        "type": "JSON"
+      }
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.16.5",
+      "toolsId": "af36bf52-5704-4bb5-b480-fdc5f9103d35"
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "mastertodo-display": {
+          "semanticObject": "mastertodo",
+          "action": "display",
+          "title": "{{mastertodo-display.flpTitle}}",
+          "subTitle": "{{mastertodo-display.flpSubtitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.127.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "td.mastertodo.i18n.i18n"
+        }
+      },
+      "TodoData":{
+        "dataSource": "Todo",
+        "type": "sap.ui.model.json.JSONModel"
+      },
+      "ThemeModel":{
+         "type": "sap.ui.model.json.JSONModel"
+      },
+      "ViewData":{
+        "type": "sap.ui.model.json.JSONModel",
+        "dataSource": "ChartData"
+      },
+      "ViewTask":{
+        "type": "sap.ui.model.json.JSONModel"
+      },
+      "CreateData":{
+         "type": "sap.ui.model.json.JSONModel"
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "td.mastertodo.view",
+        "async": true,
+        "viewPath": "td.mastertodo.view"
+      },
+      "routes": [
+        {
+          "name": "RouteinitialToDo",
+          "pattern": "/Todo",
+          "target": [
+            "TargetinitialToDo"
+          ]
+        },
+        {
+          "name": "RouteMainDashboard",
+          "pattern": "",
+          "target": [
+            "RouteMainDashboard"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetinitialToDo": {
+          "id": "initialToDo",
+          "name": "initialToDo"
+        },
+        "RouteMainDashboard": {
+          "id": "MainDashboard",
+          "name": "MainDashboard"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "td.mastertodo.view.App",
+      "type": "XML",
+      "id": "App"
+    }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "tdmastertodo"
+  }
+}

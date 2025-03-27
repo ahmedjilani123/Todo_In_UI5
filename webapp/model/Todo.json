@@ -1,0 +1,55 @@
+{
+    "Todo":[
+    {
+        "ID":123,
+        "Title":"welcome",
+        "Description":"only for testing purpose alsdf;ljsdfjalsf a;lfj;ls f;lkadfj asd;fljaf; as;lfkj asdfljkaf;l asdkjasd fal",
+        "Date":"20-03-2025",
+        "Status":"Information"
+    }
+]
+,
+"Process":[
+    {
+        "ID":124,
+        "Title":"second new task",
+        "Description":"only for testing purpose",
+        "Date":"20-03-2025",
+        "Status":"Warning"
+    }
+],
+"Complete":[
+    {
+        "ID": 125,
+        "Title": "fiori launchpad configuration",
+        "Description": "only for testing purpose",
+        "Date": "20-03-2025",
+        "Status": "Success",
+        "Priority": "High"
+    },
+    {
+        "ID": 126,
+        "Title": "SAPUI5 Component Update",
+        "Description": "Update core components for better performance",
+        "Date": "22-03-2025",
+        "Status": "Success",
+        "Priority": "Medium"
+    },
+    {
+        "ID": 127,
+        "Title": "OData Service Integration",
+        "Description": "Integrate new OData services for reports",
+        "Date": "25-03-2025",
+        "Status": "Success",
+        "Priority": "High"
+    },
+    {
+        "ID": 128,
+        "Title": "Bug Fix in UI5 Table",
+        "Description": "Fix alignment issue in the responsive table",
+        "Date": "27-03-2025",
+        "Status": "Success",
+        "Priority": "Low"
+    }
+]
+}

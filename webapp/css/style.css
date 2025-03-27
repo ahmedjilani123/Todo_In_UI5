@@ -1,0 +1,25 @@
+/* Enter your custom styles here */
+
+/* warning - #dd6100 , Information - #0070f2 , Success - #30914c */
+.TodoWarning{
+    background-image: linear-gradient(45deg,#0071f224,rgba(106, 162, 245, 0.106)) !important;
+}
+.TodoInformation{
+    background-image: linear-gradient(45deg,#dd60002f,rgba(242, 205, 83, 0.137)) !important;
+}
+.TodoSuccess{
+    background-image: linear-gradient(45deg,#30914c37,rgba(86, 254, 114, 0.074)) !important;
+}
+
+.ProcessList{
+    border: 1px solid #dd6100 !important;
+    border-radius: 14px 14px 0px 0px !important;
+}
+.TodoList{
+    border: 1px solid #0070f2 !important;
+    border-radius: 14px 14px 0px 0px !important;
+}
+.CompleteList{
+    border: 1px solid #30914c !important;
+    border-radius: 14px 14px 0px 0px !important;
+}

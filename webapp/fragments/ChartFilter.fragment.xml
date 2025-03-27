@@ -1,0 +1,44 @@
+<core:FragmentDefinition
+    xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Dialog draggable="true">
+    <customHeader>
+   <Bar >
+   <contentLeft>
+   <Title text="Filter A Data"></Title>
+   </contentLeft>
+   </Bar>
+    </customHeader>
+        <content>
+            <form:SimpleForm>
+                <form:content>
+                   <Label text="Select Year"></Label>
+                   <DatePicker 					value="{
+						path:'',
+						'type': 'sap.ui.model.type.Date',
+						'formatOptions': {
+							'pattern': 'yyyy'
+						}
+					}"></DatePicker>
+                     <Label text="Select Month"></Label>
+                   <DatePicker 					value="{
+						path:'',
+						'type': 'sap.ui.model.type.Date',
+						'formatOptions': {
+							'pattern': 'MM'
+						}
+					}"></DatePicker>
+                </form:content>
+            </form:SimpleForm>
+        </content>
+       
+        <beginButton>
+        <Button text="Close" type="Reject" press="CloseDialogPress"></Button>
+        </beginButton>
+        <endButton>
+        <Button text="Filter" type="Ghost" press="DataSavePress"></Button>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

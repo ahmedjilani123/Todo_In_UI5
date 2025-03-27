@@ -1,0 +1,49 @@
+<core:FragmentDefinition
+    xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Dialog draggable="true">
+    <customHeader>
+   <Bar >
+   <contentLeft>
+   <Title text="Add New Task"></Title>
+   </contentLeft>
+   <contentRight>
+   <Button icon="sap-icon://ai" type="Ghost" press="AIresponsePRess"></Button>
+   </contentRight>
+   </Bar>
+    </customHeader>
+        <content>
+            <form:SimpleForm>
+                <form:content>
+                    <Label text="Title" required="true"/>
+                    <Input name="Name" liveChange="InputErrorStatusChangePress" value="{ path:'CreateData>/Title',type:'sap.ui.model.type.String'}" change="AddDataForJsonPress" />
+                    <Label text="Description" required="true"/>
+                    <TextArea cols="20" liveChange="InputErrorStatusChangePress" rows="2" value="{ path:'CreateData>/Description',type:'sap.ui.model.type.String'}"></TextArea>
+                    <Label text="Category"></Label>
+                    <Select change="SelectionChangePress"  selectedKey="Type02" selectedItem="{path:'CreateData>/Category',type:'sap.ui.model.type.String'}">
+                    <items>
+                    <core:ListItem icon="sap-icon://master-task-triangle-2" text="Work" key="Type07"></core:ListItem>
+                    <core:ListItem icon="sap-icon://heart" text="Health" key="Type02"></core:ListItem>
+                    <core:ListItem icon="sap-icon://wounds-doc" text="Mental Health" key="Type05"></core:ListItem>
+                    <core:ListItem icon="sap-icon://folder-full" text="Others" key="Type09"></core:ListItem>
+                    </items>
+                    </Select>
+                    <Label text="Start Date" required="true"></Label>
+                    <DatePicker liveChange="InputErrorStatusChangePress" valueFormat="dd-MM-yyyy" displayFormat="dd-MM-yyyy"   value="{ path:'CreateData>/StartDate',type:'sap.ui.model.type.Date',formatOptions:{pattern:'dd-MM-YYYY'}}"></DatePicker>
+                    <Label text="End Date" required="true"></Label>
+                    <DatePicker liveChange="InputErrorStatusChangePress" valueFormat="dd-MM-yyyy" displayFormat="dd-MM-yyyy" value="{ path:'CreateData>/EndDate',type:'sap.ui.model.type.Date',formatOptions:{pattern:'dd-MM-YYYY'}}" ></DatePicker>
+                </form:content>
+            </form:SimpleForm>
+        </content>
+       <footer>
+       <OverflowToolbar >
+       <ToolbarSpacer ></ToolbarSpacer>
+        <Button text="Close" type="Reject" press="CloseMasterDataDialogPress"></Button>
+          <Button text="Submit" type="Ghost" press="MasterDataSavePress"></Button>
+       </OverflowToolbar>
+       </footer>
+       
+    </Dialog>
+</core:FragmentDefinition>

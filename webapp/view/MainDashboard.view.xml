@@ -1,0 +1,174 @@
+<mvc:View xmlns:tnt="sap.tnt" xmlns:simple="sap.gantt.simple" xmlns:microchart="sap.suite.ui.microchart" xmlns:feeds="sap.viz.ui5.controls.common.feeds" xmlns:data="sap.viz.ui5.data" xmlns:controls="sap.viz.ui5.controls" xmlns:commons="sap.suite.ui.commons" xmlns:unified="sap.ui.unified"  xmlns:cards="sap.f.cards"  xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.f"  controllerName="td.mastertodo.controller.MainDashboard"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+   <Page id="MainDashboard" title="Dashboard">
+   <headerContent>
+   <Button  icon="sap-icon://bell-2" 	>
+   <customData 	>
+						<BadgeCustomData  
+							key="badge"
+							value="1"
+							visible="true"/>
+					</customData>
+   </Button>
+   <Avatar displaySize="XS" active="true" displayShape="Circle" initials="AJ" backgroundColor="Accent6" press="AvatarPress"></Avatar>
+   </headerContent>
+   <content>
+  <f:GridList inset="true" >
+  <f:GridListItem type="Active">
+  <HBox  class="sapUiSmallMargin" width="100%" justifyContent="SpaceBetween">
+  <VBox>
+  <core:Icon src="sap-icon://heart" color="#c35500"></core:Icon>
+  <HBox class="sapUiTinyMarginTop">
+  <ObjectNumber number="50"></ObjectNumber>
+  <Label text="Health" design="Standard" class="sapUiTinyMarginBegin"></Label>
+  </HBox>
+  </VBox>
+  <microchart:HarveyBallMicroChart size="S" hideOnNoData="true" total="50" totalScale="T" showTotal="false" >
+  <microchart:items>
+   <microchart:HarveyBallMicroChartItem  fraction="20" fractionScale="IT"    color="Error"></microchart:HarveyBallMicroChartItem>
+  </microchart:items>
+  
+  </microchart:HarveyBallMicroChart>
+  </HBox>
+  </f:GridListItem>
+   <f:GridListItem >
+   <HBox  class="sapUiSmallMargin" width="100%" justifyContent="SpaceBetween">
+  <VBox>
+  <core:Icon src="sap-icon://master-task-triangle-2" color="#07838f"></core:Icon>
+  <HBox class="sapUiTinyMarginTop">
+  <ObjectNumber number="10"></ObjectNumber>
+  <Label text="Work" design="Standard" class="sapUiTinyMarginBegin"></Label>
+  </HBox>
+
+  </VBox>
+   <microchart:HarveyBallMicroChart size="S" hideOnNoData="true" total="50" totalScale="T" showTotal="false" >
+  <microchart:items>
+   <microchart:HarveyBallMicroChartItem  fraction="20" fractionScale="IT"    color="Neutral"></microchart:HarveyBallMicroChartItem>
+  </microchart:items>
+  
+  </microchart:HarveyBallMicroChart>
+  </HBox>
+  </f:GridListItem>
+   <f:GridListItem >
+   <HBox  class="sapUiSmallMargin" width="100%" justifyContent="SpaceBetween">
+  <VBox>
+  <core:Icon src="sap-icon://wounds-doc" color="#cc00dc"></core:Icon>
+  <HBox class="sapUiTinyMarginTop">
+  <ObjectNumber number="5"></ObjectNumber>
+  <Label text="Mental Health" design="Standard" class="sapUiTinyMarginBegin"></Label>
+  </HBox>
+  </VBox>
+   <microchart:HarveyBallMicroChart size="S" hideOnNoData="true" total="50" totalScale="T" showTotal="false" >
+  <microchart:items>
+   <microchart:HarveyBallMicroChartItem  fraction="20" fractionScale="IT"    color="Good"></microchart:HarveyBallMicroChartItem>
+  </microchart:items>
+  
+  </microchart:HarveyBallMicroChart>
+  </HBox>
+  </f:GridListItem>
+   <f:GridListItem >
+   <HBox  class="sapUiSmallMargin" width="100%" justifyContent="SpaceBetween">
+  <VBox >
+  <core:Icon src="sap-icon://folder-full" color="#5b738b"></core:Icon>
+  <HBox class="sapUiTinyMarginTop">
+  <ObjectNumber number="3"></ObjectNumber>
+  <Label text="Others" design="Standard" class="sapUiTinyMarginBegin"></Label>
+  </HBox>
+  </VBox>
+   <microchart:HarveyBallMicroChart size="S" hideOnNoData="true" total="50" totalScale="T" showTotal="false" >
+  <microchart:items>
+   <microchart:HarveyBallMicroChartItem  fraction="20" fractionScale="IT"    color="Critical"></microchart:HarveyBallMicroChartItem>
+  </microchart:items>
+  
+  </microchart:HarveyBallMicroChart>
+  </HBox>
+  </f:GridListItem>
+  </f:GridList>
+  <layout:Grid defaultSpan="XL6 L6 M6 S12" class="sapUiSmallMarginBegin sapUiSmallMarginEnd">
+  <f:Card height="400px" >
+  <f:content>
+  <!-- <HBox justifyContent="SpaceBetween" width="100%" class="sapUiSmallMargin">
+  <Title text="Week Wise Task" titleStyle="H6" level="H5" wrapping="true" wrappingType="Hyphenated"></Title>
+  <HBox >
+  <Select class="sapUiTinyMarginEnd"></Select>
+  <Select ></Select>
+  </HBox>
+  </HBox> -->
+  <commons:ChartContainer title="View Task Week Wise"  showFullScreen="true" width="100%" autoAdjustHeight="true" showLegend="true" showLegendButton="true" fullScreen="true" showZoom="false" >
+<commons:toolbar>
+<OverflowToolbar >
+<ToolbarSpacer ></ToolbarSpacer>
+<Button text="Filter" press="FilterDataChartPress"></Button>
+
+	<commons:ChartContainerToolbarPlaceholder></commons:ChartContainerToolbarPlaceholder>
+</OverflowToolbar>
+
+</commons:toolbar>
+  <commons:ChartContainerContent >
+  
+  <commons:content>
+  
+  <controls:VizFrame legendVisible="true" 
+vizProperties="{plotArea: { drawingEffect: 'glossy'}, title:{ text:''},dataLabel:{visible:true,showTotal:true}}"
+vizType="stacked_bar">
+  <controls:dataset>
+  <data:FlattenedDataset data="{ViewData>/}">
+  <data:dimensions>
+  <data:DimensionDefinition name="Weeks" value="{ViewData>Week}"></data:DimensionDefinition>
+  </data:dimensions>
+  <data:measures>
+  <data:MeasureDefinition name="Initial" value="{ViewData>Initial}"></data:MeasureDefinition>
+  <data:MeasureDefinition name="Process" value="{ViewData>Process}"></data:MeasureDefinition>
+  <data:MeasureDefinition name="Complete" value="{ViewData>Complete}"></data:MeasureDefinition>
+  </data:measures>
+  </data:FlattenedDataset>
+  </controls:dataset>
+  <controls:feeds>
+  <feeds:FeedItem type="Measure" uid="valueAxis" values="Initial,Process,Complete"></feeds:FeedItem>
+  <feeds:FeedItem type="Dimension" uid="categoryAxis" values="Weeks" ></feeds:FeedItem>
+  </controls:feeds>
+  </controls:VizFrame>
+  </commons:content>
+  </commons:ChartContainerContent>
+  </commons:ChartContainer>
+  </f:content>
+  </f:Card>
+
+   <f:Card height="400px">
+   
+  <f:content>
+    <ScrollContainer width="100%" height="100%" vertical="true">
+  <PlanningCalendar stickyHeader="true" showRowHeaders="false" appointmentSelect="handleAppointmentSelect" intervalSelect="handleIntervalSelect"  appointmentsVisualization="Filled" 	startDate="{path: 'ViewTask>/startDate'}"
+			viewKey="Week" 
+			rows="{path: 'ViewTask>/allTask'}" >
+  	<toolbarContent>
+				<Title text="Create and View Task" titleStyle="H6" level="H5" wrapping="true" wrappingType="Hyphenated"/>
+				<Button icon="sap-icon://add" text="Create" press="OpenCreateTodoPress"></Button>
+			</toolbarContent>
+            
+            <rows>
+            <PlanningCalendarRow 	appointments="{path : 'ViewTask>task', templateShareable: false}"
+					>
+            <appointments >
+            <unified:CalendarAppointment startDate="{ViewTask>StartDate}"
+							endDate="{ViewTask>EndDate}"
+							icon="{ViewTask>pic}"
+							title="{ViewTask>Title}"
+							text="{ViewTask>Description}"
+							type="{ViewTask>CategoryStatus}"
+							tentative="false"></unified:CalendarAppointment>
+            </appointments>
+           
+            </PlanningCalendarRow>
+            </rows>
+  </PlanningCalendar>
+  </ScrollContainer>
+  </f:content>
+  </f:Card>
+  
+  </layout:Grid>
+   </content>
+   </Page>
+</mvc:View>
