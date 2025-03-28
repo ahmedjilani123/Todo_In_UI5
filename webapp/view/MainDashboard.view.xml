@@ -27,7 +27,7 @@
   </VBox>
   <microchart:HarveyBallMicroChart size="S" hideOnNoData="true" total="50" totalScale="T" showTotal="false" >
   <microchart:items>
-   <microchart:HarveyBallMicroChartItem  fraction="20" fractionScale="IT"    color="Error"></microchart:HarveyBallMicroChartItem>
+   <microchart:HarveyBallMicroChartItem  fraction="2" fractionScale="IT"    color="Error"></microchart:HarveyBallMicroChartItem>
   </microchart:items>
   
   </microchart:HarveyBallMicroChart>

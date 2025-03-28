@@ -1,11 +1,11 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller",
+    "./BaseController",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator"
-], (Controller, Filter, FilterOperator) => {
+], (BaseController, Filter, FilterOperator) => {
     "use strict";
 
-    return Controller.extend("td.mastertodo.controller.initialToDo", {
+    return BaseController.extend("td.mastertodo.controller.initialToDo", {
         onInit() {
           
         },

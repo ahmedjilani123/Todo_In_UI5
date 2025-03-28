@@ -1,5 +1,5 @@
 sap.ui.define([
-  "sap/ui/core/mvc/Controller",
+  "./BaseController",
   'sap/ui/model/json/JSONModel',
   'sap/ui/core/date/UI5Date',
   'sap/ui/core/Fragment',
@@ -9,10 +9,10 @@ sap.ui.define([
   "sap/ui/core/message/MessageType",
   'sap/ui/core/BusyIndicator'
 
-], (Controller, JSONModel, UI5Date, Fragment, MessageBox, Messaging, Message, MessageType,BusyIndicator) => {
+], (BaseController, JSONModel, UI5Date, Fragment, MessageBox, Messaging, Message, MessageType,BusyIndicator) => {
   "use strict";
 
-  return Controller.extend("td.mastertodo.controller.MainDashboard", {
+  return BaseController.extend("td.mastertodo.controller.MainDashboard", {
     onInit() {
       let oView = this.getView();
       oView.setModel(Messaging.getMessageModel(), "message");
@@ -25,7 +25,7 @@ sap.ui.define([
       fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
-          "Authorization": "Bearer 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",
+          "Authorization": "Bearer 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",
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
@@ -110,11 +110,14 @@ sap.ui.define([
         oModel.setData(oData);
        
         oModel.refresh(true);
-        oModel.propertyChange(function(){
-          console.log("model")
-        })
+      
         oEvent.getSource().getParent().getParent().close();
         Messaging.removeAllMessages();
+        var weekDAta = this.groupTasksByWeek(oData.allTask[0].task);
+        this.MasterTileData(oData.allTask[0].task);
+        var oModelChart = this.getView().getModel("ViewData");
+        oModelChart.setData(weekDAta);
+        oModelChart.refresh(true);
         oModelCreate.setData({ Category:"Health",
           Status:"Information", CategoryStatus:"Type02"});
           oModelCreate.refresh(true);
@@ -157,35 +160,33 @@ sap.ui.define([
       oModel.refresh(true);
       this._Dialog = undefined;
     },
-    groupTasksByWeek(tasks) {
-      let weekData = {};
-  
-      tasks.forEach(task => {
-          let weekNumber = getWeekNumber(task.StartDate);
-          let year = new Date(task.StartDate).getFullYear();
-          let weekKey = `Week ${weekNumber}, ${year}`;
-  
-          if (!weekData[weekKey]) {
-              weekData[weekKey] = { Week: weekKey, Initial: 0, Process: 0, Complete: 0 };
+    getWeekOfMonth(date) {
+      const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+      const dayOfMonth = date.getDate();
+      return Math.ceil((dayOfMonth + firstDay.getDay()) / 7);
+  },
+  groupTasksByWeek(tasks) {
+      let that = this;
+      let weekData = [];
+      var MainDataArr = Array.isArray(tasks) ? tasks : [tasks];
+      MainDataArr.forEach(task => {
+          let weekNumber = that.getWeekOfMonth(new Date(task.StartDate));
+          let weekEntry = weekData.find(week => Number(week.Week.substring(5)) === weekNumber);
+          if (!weekEntry) {
+              weekEntry = { Week: 'Week '+weekNumber, Complete: 0, Initial: 0, Process: 0,Month:task.StartDate};
+              weekData.push(weekEntry);
           }
-  
-          if (task.Status === "Initial") {
-              weekData[weekKey].Initial++;
-          } else if (task.Status === "Process") {
-              weekData[weekKey].Process++;
-          } else if (task.Status === "Complete") {
-              weekData[weekKey].Complete++;
+          if (task.Status === "Success") {
+              weekEntry.Complete += 1;
+          } else if (task.Status === "Information") {
+              weekEntry.Initial += 1;
+          } else if (task.Status === "Warning") {
+              weekEntry.Process += 1;
           }
       });
+      return weekData;
+  }
   
-      return Object.values(weekData); 
-  },
-  getWeekNumber(dateString) {
-    let date = new Date(dateString);
-    let firstDayOfYear = new Date(date.getFullYear(), 0, 1);
-    let pastDays = Math.floor((date - firstDayOfYear) / (24 * 60 * 60 * 1000));
-    return Math.ceil((pastDays + firstDayOfYear.getDay() + 1) / 7);
-}
 
   
   });
