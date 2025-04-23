@@ -9,7 +9,7 @@
    <customData 	>
 						<BadgeCustomData  
 							key="badge"
-							value="45"
+							value="5"
 							visible="true"/>
 					</customData>
    </Button>
