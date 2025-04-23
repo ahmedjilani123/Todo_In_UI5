@@ -14,6 +14,7 @@ sap.ui.define([
 
   return BaseController.extend("td.mastertodo.controller.MainDashboard", {
     onInit() {
+      sap.ui.core.BusyIndicator.hide()
       let oView = this.getView();
       oView.setModel(Messaging.getMessageModel(), "message");
       Messaging.registerObject(oView, true);
