@@ -32,8 +32,8 @@ sap.ui.define([
       var that = this;
 
 			var	oLink = new Link({
-				text: "Show more information",
-				href: "http://sap.com",
+				text: "Created By Ahmed ",
+				href: "https://ahmedshaikhcv.netlify.app/",
 				target: "_blank"
 			});
 
