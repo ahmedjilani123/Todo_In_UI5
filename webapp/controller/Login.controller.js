@@ -39,8 +39,27 @@ this.getView().byId("LoginFormIDM").setVisible(false);
           }
         },
         SubmitDataPress(oEvent){
+          if(this.getView().byId("StudentNameID").getValue() === ""){
+            sap.m.MessageToast.show("Please Enter Student Name");
+            this.getView().byId("StudentNameID").setValueState("Error");
+            return;
+          }
+          if(this.getView().byId("StudentEmailID").getValue() === ""){
+            sap.m.MessageToast.show("Please Enter Student Email");
+            this.getView().byId("StudentEmailID").setValueState("Error");
+            return;
+          }
+          if(this.getView().byId("StudentPassID").getValue() === ""){
+            sap.m.MessageToast.show("Please Enter Student Password");
+            this.getView().byId("StudentPassID").setValueState("Error");
+            return;
+          }
+          sap.m.MessageToast.show("Login Successfully");
           var router = this.getOwnerComponent().getRouter();
           router.navTo("RouteMainDashboard");
+        },
+        inputPress(oEvent){
+          oEvent.getSource().setValueState("None");
         }
        
     });

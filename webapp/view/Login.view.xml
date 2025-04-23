@@ -105,19 +105,19 @@
                                 <layout:GridData span="XL12 L12 M12 S12" />
                             </layoutData>
                         </Label>
-                        <Input />
+                        <Input id="StudentNameID" liveChange="inputPress" />
                         <Label text="Student Email">
                             <layoutData>
                                 <layout:GridData span="XL12 L12 M12 S12" />
                             </layoutData>
                         </Label>
-                        <Input />
+                        <Input id="StudentEmailID" liveChange="inputPress"  />
                         <Label text="Student Password">
                             <layoutData>
                                 <layout:GridData span="XL12 L12 M12 S12" />
                             </layoutData>
                         </Label>
-                        <Input />
+                        <Input id="StudentPassID" liveChange="inputPress" />
                     </form:content>
                 </form:SimpleForm>
             </HBox>
