@@ -27,7 +27,7 @@
                 <List >
                 <ObjectListItem
 	
-			title="Title" 
+			title="Class 12 / Introduction to AI" 
 			type="Active"
 			press="onListItemPress"
 			number="12-12-12"
@@ -46,12 +46,7 @@
 		<detailPages>
 			<semantic:DetailPage
 					title="Detail Page Title">
-				<semantic:positiveAction>
-					<semantic:PositiveAction text="Positive" press="onSemanticButtonPress"/>
-				</semantic:positiveAction>
-				<semantic:negativeAction>
-					<semantic:NegativeAction text="Negative" press="onSemanticButtonPress"/>
-				</semantic:negativeAction>
+				
 				<semantic:forwardAction>
 					<semantic:ForwardAction press="onSemanticButtonPress"/>
 				</semantic:forwardAction>
