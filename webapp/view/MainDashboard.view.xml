@@ -1,14 +1,15 @@
 <mvc:View xmlns:tnt="sap.tnt" xmlns:simple="sap.gantt.simple" xmlns:microchart="sap.suite.ui.microchart" xmlns:feeds="sap.viz.ui5.controls.common.feeds" xmlns:data="sap.viz.ui5.data" xmlns:controls="sap.viz.ui5.controls" xmlns:commons="sap.suite.ui.commons" xmlns:unified="sap.ui.unified"  xmlns:cards="sap.f.cards"  xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.f"  controllerName="td.mastertodo.controller.MainDashboard"
     displayBlock="true"
     xmlns:mvc="sap.ui.core.mvc"
+   
     xmlns="sap.m">
    <Page id="MainDashboard" title="Dashboard">
    <headerContent>
-   <Button  icon="sap-icon://bell-2" 	>
+   <Button  icon="sap-icon://bell-2"  press="AdminTaskForUserPress"	>
    <customData 	>
 						<BadgeCustomData  
 							key="badge"
-							value="1"
+							value="45"
 							visible="true"/>
 					</customData>
    </Button>
@@ -16,7 +17,7 @@
    </headerContent>
    <content>
   <f:GridList inset="true" >
-  <f:GridListItem type="Active">
+  <f:GridListItem type="Active" press="HeaderItemDataPress">
   <HBox  class="sapUiSmallMargin" width="100%" justifyContent="SpaceBetween">
   <VBox>
   <core:Icon src="sap-icon://heart" color="#c35500"></core:Icon>
@@ -33,7 +34,7 @@
   </microchart:HarveyBallMicroChart>
   </HBox>
   </f:GridListItem>
-   <f:GridListItem >
+   <f:GridListItem type="Active" press="HeaderItemDataPress">
    <HBox  class="sapUiSmallMargin" width="100%" justifyContent="SpaceBetween">
   <VBox>
   <core:Icon src="sap-icon://master-task-triangle-2" color="#07838f"></core:Icon>
@@ -51,7 +52,7 @@
   </microchart:HarveyBallMicroChart>
   </HBox>
   </f:GridListItem>
-   <f:GridListItem >
+   <f:GridListItem type="Active" press="HeaderItemDataPress">
    <HBox  class="sapUiSmallMargin" width="100%" justifyContent="SpaceBetween">
   <VBox>
   <core:Icon src="sap-icon://wounds-doc" color="#cc00dc"></core:Icon>
@@ -68,7 +69,7 @@
   </microchart:HarveyBallMicroChart>
   </HBox>
   </f:GridListItem>
-   <f:GridListItem >
+   <f:GridListItem type="Active" press="HeaderItemDataPress">
    <HBox  class="sapUiSmallMargin" width="100%" justifyContent="SpaceBetween">
   <VBox >
   <core:Icon src="sap-icon://folder-full" color="#5b738b"></core:Icon>
@@ -116,7 +117,7 @@ vizType="stacked_bar">
   <controls:dataset>
   <data:FlattenedDataset data="{ViewData>/}">
   <data:dimensions>
-  <data:DimensionDefinition name="Weeks" value="{ViewData>Week}"></data:DimensionDefinition>
+  <data:DimensionDefinition name="Weeks" value="{path:'ViewData>Week'}"></data:DimensionDefinition>
   </data:dimensions>
   <data:measures>
   <data:MeasureDefinition name="Initial" value="{ViewData>Initial}"></data:MeasureDefinition>

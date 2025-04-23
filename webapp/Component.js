@@ -28,6 +28,9 @@ sap.ui.define([
                 CategoryStatus:"Type02"
             })
             oModel.refresh(true);
+            var omdeol =this.getModel("ColumnLayout");
+            omdeol.setData({FLayout:"OneColumn"})
+            omdeol.refresh(true);
 
             // enable routing
             this.getRouter().initialize();

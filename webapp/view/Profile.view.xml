@@ -1,0 +1,62 @@
+<mvc:View xmlns:f="sap.f" controllerName="td.mastertodo.controller.Profile"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc" 	xmlns:layout="sap.ui.layout"
+    xmlns="sap.m">
+  <f:DynamicPage >
+ <f:title>
+ <f:DynamicPageTitle>
+ 	<f:heading>
+						<Title text="Header Title"/>
+					</f:heading>
+ <f:actions>
+ <Button icon="sap-icon://decline" press="CloseInformationPress"></Button>
+ </f:actions>
+ </f:DynamicPageTitle>
+ </f:title>
+ <f:header>
+ <f:DynamicPageHeader >
+ 	<FlexBox
+								alignItems="Start"
+								justifyContent="SpaceBetween">
+							<items>
+								<Panel
+										backgroundDesign="Transparent"
+										class="sapUiNoContentPadding">
+									<content>
+                                
+										<layout:HorizontalLayout
+												allowWrapping="true">
+											<layout:VerticalLayout
+													class="sapUiMediumMarginEnd">
+												<ObjectAttribute title="Location" text="Warehouse A"/>
+												<ObjectAttribute title="Halway" text="23L"/>
+												<ObjectAttribute title="Rack" text="34"/>
+											</layout:VerticalLayout>
+											<layout:VerticalLayout>
+												<ObjectAttribute title="Process"/>
+												<ObjectStatus text="Pending" state="Success" />
+											</layout:VerticalLayout>
+										</layout:HorizontalLayout>
+									</content>
+								</Panel>
+							</items>
+						</FlexBox>
+ </f:DynamicPageHeader>
+ </f:header>
+ <f:content>
+ <IconTabBar class="sapUiResponsiveContentPadding">
+ <items>
+ <IconTabFilter text="Information">
+ 
+ </IconTabFilter>
+ <IconTabFilter text="Attachments">
+ 
+ </IconTabFilter>
+ <IconTabFilter text="Additional Information">
+ 
+ </IconTabFilter>
+ </items>
+ </IconTabBar>
+ </f:content>
+  </f:DynamicPage>
+</mvc:View>

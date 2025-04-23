@@ -10,7 +10,7 @@
         title="{i18n>title}"
     >
         <headerContent>
-            <Button text="Create New Task"  press="OpenCreateTodoPress"/>
+            <!-- <Button text="Create New Task"  press="OpenCreateTodoPress"/> -->
             <Switch
                 state="{viewModel>/isDarkMode}"
                 change="SWitchThemePress"
@@ -37,11 +37,11 @@
                     class="TodoList"
                     items="{TodoData>/Todo}"
                     footerText=" "
-                    noDataText="No New Task"
+                    noDataText="No New Task" itemPress="onTodoItemPress"
                 >
                     <headerToolbar>
                         <OverflowToolbar design="Solid">
-                            <Title text="To Do" />
+                            <Title text="New Task for Ahmed" />
                             <ToolbarSpacer />
                         </OverflowToolbar>
                     </headerToolbar>
@@ -64,6 +64,7 @@
                             class="TodoWarning"
                             type="Active"
                             highlight="{TodoData>Status}"
+                            press="onTodoItemPress"
                         >
                             <HBox
                                  class="sapUiSmallMargin"
@@ -102,7 +103,7 @@
                     items="{TodoData>/Process}"
                     noDataText="No Process Task"
                     footerText=" "
-                    growing="true"
+                    growing="true" itemPress="onTodoItemPress"
                     growingThreshold="10"
                 >
                     <headerToolbar>
@@ -125,7 +126,7 @@
                         />
                     </dragDropConfig>
                     <items>
-                        <CustomListItem
+                        <CustomListItem  press="onTodoItemPress"
                             class="TodoInformation"
                             type="Active"
                             highlight="{TodoData>Status}"
@@ -171,7 +172,7 @@
                     footerText=" "
                     growing="true"
                     growingThreshold="10"
-                    growingTriggerText="Total Task "
+                    growingTriggerText="Total Task " itemPress="onTodoItemPress"
                 >
                     <headerToolbar>
                         <OverflowToolbar design="Solid">
@@ -193,7 +194,7 @@
                         />
                     </dragDropConfig>
                     <items>
-                        <CustomListItem
+                        <CustomListItem  press="onTodoItemPress"
                             class="TodoSuccess"
                             type="Active"
                             highlight="{TodoData>Status}"

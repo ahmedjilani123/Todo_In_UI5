@@ -12,7 +12,7 @@
     </style>
     <script
         id="sap-ui-bootstrap"
-        src="resources/sap-ui-core.js"
+        src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
         data-sap-ui-theme="sap_horizon"
         data-sap-ui-resourceroots='{
             "td.mastertodo": "./"
@@ -22,6 +22,19 @@
         data-sap-ui-async="true"
         data-sap-ui-frameOptions="trusted"
     ></script>
+    <!-- <script>
+        sap.ui.getCore().attachInit(function () {
+             sap.ui.core.BusyIndicator.show()
+            
+        })
+        document.addEventListener('contextmenu',
+        event => event.preventDefault());
+        document.addEventListener('keydown', function(event) {
+  if (event.key === 'F12') {
+    event.preventDefault();
+  }
+});
+            </script> -->
 </head>
 <body class="sapUiBody sapUiSizeCompact" id="content">
     <div

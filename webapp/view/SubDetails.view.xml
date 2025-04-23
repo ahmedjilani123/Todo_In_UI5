@@ -1,0 +1,30 @@
+<mvc:View xmlns:tnt="sap.tnt"
+    xmlns:form="sap.ui.layout.form"
+    controllerName="td.mastertodo.controller.SubDetails"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:obj="sap.uxap"
+    xmlns:layout="sap.ui.layout"
+    xmlns="sap.m"
+     xmlns:core="sap.ui.core" 
+    xmlns:cards="sap.f.cards"
+    xmlns:f="sap.f"
+>
+<Page id="SubDetails" showHeader="false">
+             <f:FlexibleColumnLayout  layout="{ColumnLayout>/FLayout}" >
+
+                <f:beginColumnPages>
+                 <!-- <core:Fragment  fragmentName="td.mastertodoview.initialToDo" type="XML"/> -->
+                           <mvc:XMLView viewName="td.mastertodo.view.initialToDo" type="XML"/>
+                </f:beginColumnPages>
+                <f:midColumnPages>
+                   
+                  <!-- <core:Fragment  fragmentName="ascv.sap.portfolio.view.TaskDetail" type="XML"/> -->
+               
+                    <mvc:XMLView viewName="td.mastertodo.view.Profile" type="XML" />
+               
+                </f:midColumnPages>
+            </f:FlexibleColumnLayout>
+           
+    </Page>
+    
+</mvc:View>

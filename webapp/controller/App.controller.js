@@ -5,6 +5,8 @@ sap.ui.define([
 
   return BaseController.extend("td.mastertodo.controller.App", {
       onInit() {
+        sap.ui.core.BusyIndicator.hide()
       }
+     
   });
 });

@@ -92,6 +92,9 @@
       },
       "CreateData":{
          "type": "sap.ui.model.json.JSONModel"
+      },
+      "ColumnLayout":{
+          "type": "sap.ui.model.json.JSONModel"
       }
     },
     "resources": {
@@ -115,28 +118,83 @@
       },
       "routes": [
         {
+          "name": "Login",
+          "pattern": "",
+          "target": [
+            "Login"
+          ]
+        },
+        {
           "name": "RouteinitialToDo",
-          "pattern": "/Todo",
+          "pattern": "/TodoM/:Category:",
           "target": [
             "TargetinitialToDo"
           ]
         },
         {
+          "name": "SubDetailsM",
+          "pattern": "/Todo/:Category:",
+          "target": [
+            "SubDetails"
+          ]
+        },
+        {
           "name": "RouteMainDashboard",
-          "pattern": "",
+          "pattern": "/Dashboard",
           "target": [
             "RouteMainDashboard"
+          ]
+        },
+        {
+          "name": "MasterProfile",
+          "pattern": "/masterProfile",
+          "target": [
+            "MasterProfile1"
+          ]
+        },
+        {
+          "name": "TotalTaskView",
+          "pattern": "/totalTask",
+          "target": [
+            "TotalTaskView"
+          ]
+        },
+        {
+          "name": "Classroom",
+          "pattern": "/classroom",
+          "target": [
+            "ClassroomView"
           ]
         }
       ],
       "targets": {
+        "Login": {
+          "id": "login",
+          "name": "Login"
+        },
         "TargetinitialToDo": {
           "id": "initialToDo",
           "name": "initialToDo"
         },
+        "SubDetails": {
+          "id": "SubDetails",
+          "name": "SubDetails"
+        },
         "RouteMainDashboard": {
           "id": "MainDashboard",
           "name": "MainDashboard"
+        },
+        "MasterProfile1": {
+          "id": "MasterProfile",
+          "name": "MasterProfile"
+        },
+        "TotalTaskView": {
+          "id": "TotalTask",
+          "name": "TotalTask"
+        },
+        "ClassroomView": {
+          "id": "Classroom",
+          "name": "Classroom"
         }
       }
     },

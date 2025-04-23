@@ -17,7 +17,14 @@ sap.ui.define([
       let oView = this.getView();
       oView.setModel(Messaging.getMessageModel(), "message");
       Messaging.registerObject(oView, true);
+      // window.onpopstate =this.datachange.bind(this)
     },
+    AdminTaskForUserPress(oEvent){
+      sap.m.MessageToast.show("Admin Task For User Press " + oEvent.getSource().getBadgeCustomData().getValue());
+    },
+//     datachange(){
+// debugger
+//     },
     SearchTaskValuePress(oEvent){
       oEvent.getSource().getParent().getParent().getContent()[0].setBusy(true);
       var prompt = `Title : ${oEvent.getSource().getValue()} , Decription : i want description for this title`
@@ -69,8 +76,24 @@ sap.ui.define([
 				oPopover.openBy(oButton);
 			});
     },
-    AvatarPress() {
+    AvatarPress(oEvent) {
+      var oButton = oEvent.getSource(),
+      oView = this.getView();
 
+    // open profile popover
+    if (!this._pPopoverS) {
+      this._pPopoverS = Fragment.load({
+        id: oView.getId(),
+        name: "td.mastertodo.fragments.Profile",
+        controller: this
+      }).then(function(oPopoverS) {
+        oView.addDependent(oPopoverS);
+        return oPopoverS;
+      });
+    }
+    this._pPopoverS.then(function(oPopover) {
+      oPopover.openBy(oButton);
+    });
     },
     SelectionChangePress(oEvent) {
       var oModel = this.getView().getModel("CreateData");
@@ -126,9 +149,9 @@ sap.ui.define([
     },
     FilterDataChartPress() {
       let oView = this.getView();
-      this._Dialog ??= new sap.ui.xmlfragment("td.mastertodo.fragments.ChartFilter", this);
-      // oView.addDependent(this._Dialog.setModel("Main"));
-      this._Dialog.open();
+      this._DialogF ??= new sap.ui.xmlfragment("td.mastertodo.fragments.ChartFilter", this);
+      // oView.addDependent(this._DialogF.setModel("Main"));
+      this._DialogF.open();
     },
     onAfterRendering() {
       var oModel = this.getOwnerComponent().getModel("ViewTask");
@@ -145,12 +168,7 @@ sap.ui.define([
     handleAppointmentSelect(oEvent) {
      // show detail about task code 
     },
-    OpenCreateTodoPress() {
-      let oView = this.getView();
-      this._Dialog ??= new sap.ui.xmlfragment("td.mastertodo.fragments.AddTodo", this);
-      oView.addDependent(this._Dialog.setModel("CreateData"));
-      this._Dialog.open();
-    },
+    
     CloseMasterDataDialogPress(oEvent) {
       oEvent.getSource().getParent().getParent().close();
       Messaging.removeAllMessages();
@@ -185,6 +203,12 @@ sap.ui.define([
           }
       });
       return weekData;
+  },
+  HeaderItemDataPress(oEvent){
+    var router = this.getOwnerComponent().getRouter();
+    router.navTo("SubDetailsM",{
+      Category:oEvent.getSource().getAggregation("content")[0].getAggregation("items")[0].getAggregation("items")[1].getAggregation("items")[1].getProperty("text")
+    })
   }
   
 

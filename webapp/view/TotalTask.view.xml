@@ -1,0 +1,31 @@
+<mvc:View controllerName="td.mastertodo.controller.TotalTask"
+    displayBlock="true"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns="sap.m">
+   <Page id="TotalTask" title="All Task Details">
+<content>
+	<List
+		items="{TodoData>/AllData}"
+		headerText="">
+		<ObjectListItem
+	
+			title="{TodoData>Title}" 
+			type="Active"
+			press="onListItemPress"
+			number="{TodoData>Date}"
+			numberUnit="">
+			<firstStatus>
+				<ObjectStatus
+					text="{TodoData>Status}"
+					state="{
+						path: 'TodoData>Status',
+						formatter: '.formatter.status'
+					}" />
+			</firstStatus>
+			<ObjectAttribute text="{TodoData>Priority}" />
+		</ObjectListItem>
+	</List>
+</content>
+   </Page>
+</mvc:View>

@@ -1,0 +1,48 @@
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form"
+		xmlns="sap.m"
+		xmlns:core="sap.ui.core">
+	<Dialog
+		id="myDialog"
+		title="Form" titleAlignment="Center" showHeader="false"
+		class="sapUiContentPadding">
+        <customHeader>
+        <OverflowToolbar >
+        <Title text="Sign In"></Title>
+        <ToolbarSpacer ></ToolbarSpacer>
+        	<MenuButton text="Auth">
+			<menu>
+				<Menu>
+					<MenuItem text="Sign In" icon="sap-icon://visits" press="onPress">
+						<customData>
+							<core:CustomData
+								key="target"
+								value="p1" />
+						</customData>
+					</MenuItem>
+					<MenuItem text="Sign Up" icon="sap-icon://add-contact" press="onPress" />
+				
+				</Menu>
+			</menu>
+		</MenuButton>
+        </OverflowToolbar>
+        </customHeader>
+	   <form:SimpleForm >
+       <form:content>
+       <Label text="UserName"></Label>
+       <Input ></Input>
+       <Label text="Email"></Label>
+       <Input ></Input>
+       <Label text="Password"></Label>
+       <Input ></Input>
+       </form:content>
+       </form:SimpleForm>
+
+
+		<beginButton>
+			<Button text="Close" type="Ghost" press="onCloseDialog"/>
+		</beginButton>
+        <endButton>
+      <Button text="Send" type="Emphasized" press="onCloseDialog"/>
+        </endButton>
+	</Dialog>
+</core:FragmentDefinition>

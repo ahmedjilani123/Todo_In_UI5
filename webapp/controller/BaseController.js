@@ -3,14 +3,25 @@ sap.ui.define([
 ],function(Controller){
     "use strict";
     return Controller.extend("td.mastertodo.controller.BaseController", {
+        OpenCreateTodoPress() {
+            let oView = this.getView();
+            this._Dialog ??= new sap.ui.xmlfragment("td.mastertodo.fragments.AddTodo", this);
+            oView.addDependent(this._Dialog.setModel("CreateData"));
+            this._Dialog.open();
+          },
+          SignOutpress(){
+            var router = this.getOwnerComponent().getRouter();
+            router.navTo("Login");
+          },
       MasterTileData(data){
         var MasterTile =[];
+        ["Health","Mental Health","Works","Others"].forEach(ele1=>{
+               const TileEntry = { Total:0,Category: ele1, Complete: 0, Initial: 0, Process: 0};
+                MasterTile.push(TileEntry);
+        })
         data.forEach(ele=>{
             let TileEntry = MasterTile.find(main => main.Category === ele.Category);
-            if (!TileEntry) {
-                TileEntry = { Total:0,Category: ele.Category, Complete: 0, Initial: 0, Process: 0};
-                MasterTile.push(TileEntry);
-            }
+           
             if(ele.Category === TileEntry.Category){
                 TileEntry.Total += 1;   
             }
@@ -32,6 +43,23 @@ sap.ui.define([
             TileEntry.ActualStatus = AcutalData;
         })
         return MasterTile;
-      }
+      },
+      onTodoItemPress(oEvent){
+        var model = this.getOwnerComponent().getModel("ColumnLayout");
+        model.setData({FLayout:"TwoColumnsBeginExpanded"})
+        model.refresh(true);
+    },
+    MasterProfilePress(oEvent){
+        var router = this.getOwnerComponent().getRouter();
+        router.navTo("MasterProfile");
+    },
+    TotalTaskPress(){
+        var router = this.getOwnerComponent().getRouter();
+        router.navTo("TotalTaskView");
+    },
+    ClassroomPress(){
+        var router = this.getOwnerComponent().getRouter();
+        router.navTo("Classroom");
+    }
     })
 })

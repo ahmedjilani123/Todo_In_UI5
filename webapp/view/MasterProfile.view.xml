@@ -1,0 +1,193 @@
+<mvc:View controllerName="td.mastertodo.controller.MasterProfile"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc" 	
+		xmlns="sap.uxap"
+	xmlns:m="sap.m"
+	
+	xmlns:forms="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	
+>
+   	<ObjectPageLayout id="ObjectPageLayout" upperCaseAnchorBar="false">
+		<headerTitle>
+			<ObjectPageDynamicHeaderTitle>
+				<expandedHeading>
+					<m:Title text="Karan J Sharma" />
+				</expandedHeading>
+
+				<snappedHeading>
+					<m:HBox>
+						<m:Avatar src="./test-resources/sap/uxap/images/robot.png"
+							class="sapUiMediumMarginEnd"
+							displayShape="Square" />
+						<m:VBox>
+							<m:Title text="Karan J Sharma"/>
+							<m:Label text="Student" />
+						</m:VBox>
+					</m:HBox>
+				</snappedHeading>
+
+				<expandedContent>
+					<m:Label text="Student"/>
+				</expandedContent>
+
+				<snappedTitleOnMobile>
+					<m:Title text="Karan J Sharma" />
+				</snappedTitleOnMobile>
+
+				<!-- <actions>
+					<m:Button text="Edit" type="Emphasized" />
+					<m:Button text="Delete" />
+					<m:Button text="Simulate Assembly" />
+				</actions> -->
+			</ObjectPageDynamicHeaderTitle>
+		</headerTitle>
+
+		<headerContent>
+			<m:FlexBox wrap="Wrap" fitContainer="true">
+				<m:Avatar src="./test-resources/sap/uxap/images/robot.png"
+					class="sapUiMediumMarginEnd"
+					displayShape="Square"
+					displaySize="L" />
+
+				<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+					<m:HBox class="sapUiTinyMarginBottom" renderType="Bare">
+						<m:Label text="Name :" class="sapUiTinyMarginEnd" />
+						<m:Text text="Karan" />
+					</m:HBox>
+
+					<m:HBox class="sapUiTinyMarginBottom" renderType="Bare">
+						<m:Label text="Country" class="sapUiTinyMarginEnd" />
+						<m:Text text=" India" />
+					</m:HBox>
+
+					<m:HBox>
+						<m:Label text="Contact :" class="sapUiTinyMarginEnd" />
+						<m:Link text="234242343" />
+					</m:HBox>
+				</m:VBox>
+
+				<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+					<m:Title text="Status" class="sapUiTinyMarginBottom" />
+					<m:ObjectStatus text="Active"
+						state="Success"
+						class="sapMObjectStatusLarge" />
+				</m:VBox>
+
+			
+
+				<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+					<m:Title text="Maximum Task" class="sapUiTinyMarginBottom" />
+					<m:ObjectStatus text="Pending"
+						state="Error"
+						class="sapMObjectStatusLarge" />
+				</m:VBox>
+
+				<m:VBox class="sapUiLargeMarginEnd">
+					<m:Title text="Monthly Work" class="sapUiTinyMarginBottom" />
+					<m:ObjectNumber number="Super"
+						
+						emphasized="false"
+						class="sapMObjectNumberLarge" />
+				</m:VBox>
+			</m:FlexBox>
+		</headerContent>
+
+		<sections>
+			<ObjectPageSection titleUppercase="false" title="General Information">
+				<subSections>
+					<ObjectPageSubSection title="General Details" showTitle="false">
+						<blocks>
+							<forms:SimpleForm class="sapUxAPObjectPageSubSectionAlignContent"
+								layout="ColumnLayout"
+								columnsM="2"
+								columnsL="3"
+								columnsXL="4">
+								<core:Title text="General Details" />
+
+								<m:Label text="Student ID" />
+								<m:Text text="589946637" />
+
+								<m:Label text="Cotract" />
+								<m:Link text="10045876" />
+
+								<m:Label text="Transaction Date:" />
+								<m:Text text="May 6, 2018" />
+
+								<m:Label text="Expected Delivery Date" />
+								<m:Text text="June 23, 2018" />
+
+								<m:Label text="Address" />
+								<m:Text text="Orlando, FL" />
+
+								<m:Label text="Address 2" />
+								<m:Text text="Robotech" />
+
+								<core:Title text="Configuration Accounts" />
+
+								<m:Label text="Model" />
+								<m:Text text="Advanced" />
+
+								<m:Label text="Transaction Code" />
+								<m:Text text="12346543df345" />
+
+								<m:Label text="Sharable " />
+								<m:Text text="No" />
+
+								<m:Label text="Total Completed Task" />
+								<m:Text text="50" />
+
+								<m:Label text="Monthly Pay" />
+								<m:Text text="No" />
+							</forms:SimpleForm>
+						</blocks>
+					</ObjectPageSubSection>
+					
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection titleUppercase="false" title="Contact Information">
+				<subSections>
+					<ObjectPageSubSection title="Contact Information">
+						<blocks>
+							<forms:SimpleForm class="sapUxAPObjectPageSubSectionAlignContent"
+								layout="ColumnLayout"
+								columnsM="2"
+								columnsL="3"
+								columnsXL="4">
+								<core:Title text="Phone Numbers" />
+
+								<m:Label text="Home"/>
+								<m:Text text="+ 1 415-321-1234" />
+
+								<m:Label text="Office phone" />
+								<m:Text text="+ 1 415-321-5555" />
+
+								<core:Title text="Social Accounts" />
+
+								<m:Label text="LinkedIn" />
+								<m:Text text="/DeniseSmith" />
+
+								<m:Label text="Twitter"/>
+								<m:Text text="@DeniseSmith" />
+
+								<core:Title text="Addresses" />
+
+								<m:Label text="Home Address" />
+								<m:Text text="2096 Mission Street" />
+
+								<m:Label text="Mailing Address" />
+								<m:Text text="PO Box 32114" />
+
+								<core:Title text="Mailing Address" />
+
+								<m:Label text="Work" />
+								<m:Text text="DeniseSmith@sap.com" />
+							</forms:SimpleForm>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+</mvc:View>
