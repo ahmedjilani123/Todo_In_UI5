@@ -143,29 +143,19 @@ sap.ui.define([
       oEvent.getSource().getParent().getParent().getContent()[0].setBusy(true);
       var prompt = `Title : ${oEvent.getSource().getValue()} , Decription : i want description for this title`
       oEvent.getSource().setEditable(false);
-      fetch("https://openrouter.ai/api/v1/chat/completions", {
+      fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyDXzlFD2RniB0umi647X986V6FS-CMjmy0", {
         method: "POST",
         headers: {
-          "Authorization": "Bearer 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",
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          "model": "qwen/qwen2.5-vl-32b-instruct:free",
-          "messages": [
-            {
-              "role": "user",
-              "content": [
-                {
-                  "type": "text",
-                  "text": `${prompt}`
-                }
-              ]
-            }
-          ]
-        })
+          "contents": [{
+            "parts":[{"text": `${prompt}`}]
+            }]
+           })
       }).then((res)=>res.json()).then(data=>{
         oEvent.getSource().getParent().getParent().getContent()[0].setBusy(false);
-        oEvent.getSource().getParent().getParent().getContent()[0].getAggregation("items")[0].setProperty("text",data.choices[0].message.content)
+        oEvent.getSource().getParent().getParent().getContent()[0].getAggregation("items")[0].setProperty("text",data.candidates[0].content.parts[0].text)
         oEvent.getSource().setEditable(true);
         oEvent.getSource().setValue("");
 
