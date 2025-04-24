@@ -5,7 +5,8 @@
     xmlns="sap.m">
    <Page id="MainDashboard" title="Dashboard">
    <headerContent>
-   <Button  icon="sap-icon://bell-2"  press="AdminTaskForUserPress"	>
+   <Button icon="sap-icon://da-2" press="AiPress" type="Attention"></Button>
+   <Button  icon="sap-icon://bell-2" type="Neutral"  press="AdminTaskForUserPress"	>
    <customData 	>
 						<BadgeCustomData  
 							key="badge"
