@@ -5,6 +5,7 @@
         "Title":"welcome",
         "Description":"only for testing purpose alsdf;ljsdfjalsf a;lfj;ls f;lkadfj asd;fljaf; as;lfkj asdfljkaf;l asdkjasd fal",
         "Date":"20-03-2025",
+        "Category":"Work",
         "Status":"Information"
     }
 ]
@@ -15,7 +16,8 @@
         "Title":"second new task",
         "Description":"only for testing purpose",
         "Date":"20-03-2025",
-        "Status":"Warning"
+        "Status":"Warning",
+        "Category":"Health"
     }
 ],
 "Complete":[
@@ -25,6 +27,7 @@
         "Description": "only for testing purpose",
         "Date": "20-03-2025",
         "Status": "Success",
+        "Category":"Mental Health",
         "Priority": "High"
     },
     {
@@ -33,6 +36,7 @@
         "Description": "Update core components for better performance",
         "Date": "22-03-2025",
         "Status": "Success",
+        "Category":"Others",
         "Priority": "Medium"
     },
     {
@@ -41,6 +45,7 @@
         "Description": "Integrate new OData services for reports",
         "Date": "25-03-2025",
         "Status": "Success",
+        "Category":"Work",
         "Priority": "High"
     },
     {
@@ -48,6 +53,7 @@
         "Title": "Bug Fix in UI5 Table",
         "Description": "Fix alignment issue in the responsive table",
         "Date": "27-03-2025",
+        "Category":"Work",
         "Status": "Success",
         "Priority": "Low"
     }
@@ -59,6 +65,7 @@
         "Description": "only for testing purpose",
         "Date": "20-03-2025",
         "Status": "Success",
+        "Category":"Health",
         "Priority": "High"
     },
     {
@@ -67,6 +74,7 @@
         "Description": "Update core components for better performance",
         "Date": "22-03-2025",
         "Status": "Success",
+        "Category":"Mental Health",
         "Priority": "Medium"
     },
     {
@@ -75,6 +83,7 @@
         "Description": "Integrate new OData services for reports",
         "Date": "25-03-2025",
         "Status": "Success",
+        "Category":"Others",
         "Priority": "High"
     },
     {
@@ -83,6 +92,7 @@
         "Description": "Fix alignment issue in the responsive table",
         "Date": "27-03-2025",
         "Status": "Success",
+        "Category":"Health",
         "Priority": "Low"
     },
     {
@@ -90,6 +100,7 @@
         "Title":"second new task",
         "Description":"only for testing purpose",
         "Date":"20-03-2025",
+        "Category":"Mental Health",
         "Status":"Warning"
     },
     {
@@ -97,6 +108,7 @@
         "Title":"welcome",
         "Description":"only for testing purpose alsdf;ljsdfjalsf a;lfj;ls f;lkadfj asd;fljaf; as;lfkj asdfljkaf;l asdkjasd fal",
         "Date":"20-03-2025",
+        "Category":"Work",
         "Status":"Information"
     }
 ]

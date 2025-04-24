@@ -7,8 +7,33 @@ sap.ui.define([
 
     return BaseController.extend("td.mastertodo.controller.initialToDo", {
         onInit() {
-          
-        },
+            var router = this.getOwnerComponent().getRouter();
+            router
+              .getRoute("SubDetailsM")
+              .attachPatternMatched(this.ObjectRouterViewData, this);
+          },
+          ObjectRouterViewData: function (oEvent) {
+
+            this.Category = oEvent.getParameter("arguments").Category;
+            var oModelTodo = this.getView().getModel("TodoData");
+            var AllData = oModelTodo.getData().AllData.filter(ele=>ele.Category === this.Category);
+            console.log(AllData);
+            oModelTodo.setProperty("/Todo", []);
+            oModelTodo.setProperty("/Process", []);
+            oModelTodo.setProperty("/Complete", []);
+            AllData.forEach(org=>{
+                if(org.Status === "Information"){
+                    oModelTodo.getData().Todo.push(org);
+                }else if(org.Status === "Warning"){
+                    oModelTodo.getData().Process.push(org);
+                }else if(org.Status === "Success"){
+                    oModelTodo.getData().Complete.push(org);
+                }
+
+            })
+            oModelTodo.refresh(true);
+
+          },
         onAfterRendering(){
             let oModel = this.getView().getModel("ThemeModel"),theme;
             if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -19,6 +44,7 @@ sap.ui.define([
                 oModel.setProperty("/isDarkMode", false); 
             }
             sap.ui.getCore().applyTheme(theme);
+          
         },
         SWitchThemePress: function (data) {
             var DesignModel = data.getParameter("state") ? "sap_horizon_dark" : "sap_horizon";
@@ -28,7 +54,7 @@ sap.ui.define([
         },
         OpenCreateTodoPress(){
             let oView = this.getView();
-            this._Dialog ??= new sap.ui.xmlfragment("td.mastertodo..fragments.AddTodo",this);
+            this._Dialog ??= new sap.ui.xmlfragment("td.mastertodo.fragments.AddTodo",this);
             // oView.addDependent(this._Dialog.setModel("Main"));
             this._Dialog.open();      
         },

@@ -242,6 +242,9 @@ sap.ui.define([
         finalData.StartDate =UI5Date.getInstance( finalData.StartDate.getFullYear(),finalData.StartDate.getMonth(),finalData.StartDate.getDate() , "0", "0");
         finalData.EndDate =UI5Date.getInstance( finalData.EndDate.getFullYear(),finalData.EndDate.getMonth(),finalData.EndDate.getDate() , "23", "59");
         var oModel = this.getView().getModel("ViewTask");
+        var TodoMoldel = this.getView().getModel("TodoData");
+        TodoMoldel.getData().AllData.push(finalData);
+        TodoMoldel.refresh(true);
         oModel.getData().allTask[0].task.push(finalData);
         var oData = oModel.getData()
         oModel.setData(oData);
@@ -324,8 +327,5 @@ sap.ui.define([
       Category:oEvent.getSource().getAggregation("content")[0].getAggregation("items")[0].getAggregation("items")[1].getAggregation("items")[1].getProperty("text")
     })
   }
-  
-
-  
   });
 });

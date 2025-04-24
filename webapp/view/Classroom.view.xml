@@ -17,9 +17,7 @@
 				<semantic:group>
 					<semantic:GroupAction press="onSemanticButtonPress"/>
 				</semantic:group>
-				<semantic:addAction>
-					<semantic:AddAction press="onSemanticButtonPress"/>
-				</semantic:addAction>
+
 				<semantic:multiSelectAction>
 					<semantic:MultiSelectAction press="onMultiSelectPress"/>
 				</semantic:multiSelectAction>
