@@ -17,6 +17,7 @@ sap.ui.define([
         onPress(oEvent){
           if(oEvent.getSource().getProperty("text") === "Register"){
             this.getView().byId("RegisterFormID").setVisible(true);
+            this.getView().byId("PaymentId").setVisible(true);
             this.getView().byId("segmentedButtonID").setEnabled(false);
             this.getView().byId("LoginTFormID").setVisible(false);
 this.getView().byId("LoginFormIDM").setVisible(false);
@@ -27,6 +28,7 @@ this.getView().byId("login").setTitle("Register");
                         this.getView().byId("LoginTFormID").setVisible(false);
             this.getView().byId("LoginFormIDM").setVisible(true);
             this.getView().byId("RegisterFormID").setVisible(false);
+            this.getView().byId("PaymentId").setVisible(false);
                       }
         },
         SelectedGuestPress(oEvent){

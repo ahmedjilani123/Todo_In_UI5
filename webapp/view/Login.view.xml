@@ -1,4 +1,6 @@
 <mvc:View
+    xmlns:cards="sap.f.cards"
+    xmlns:f="sap.f"
     xmlns:layout="sap.ui.layout"
     xmlns:form="sap.ui.layout.form"
     controllerName="td.mastertodo.controller.Login"
@@ -13,14 +15,18 @@
         title="Login"
         class="sapUiContent"
         floatingFooter="true"
-        titleAlignment="Center" backgroundDesign="List"
+        titleAlignment="Center"
+        backgroundDesign="List"
     >
-    <footer>
-    <OverflowToolbar >
-    <ToolbarSpacer ></ToolbarSpacer>
-    <Button text="Submit" press="SubmitDataPress"></Button>
-    </OverflowToolbar>
-    </footer>
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer />
+                <Button
+                    text="Submit"
+                    press="SubmitDataPress"
+                />
+            </OverflowToolbar>
+        </footer>
         <headerContent>
             <MenuButton text="Auth">
                 <menu>
@@ -49,7 +55,8 @@
         <subHeader>
             <OverflowToolbar>
                 <ToolbarSpacer />
-                <SegmentedButton id="segmentedButtonID"
+                <SegmentedButton
+                    id="segmentedButtonID"
                     selectedKey="student"
                     selectionChange="SelectedGuestPress"
                 >
@@ -65,8 +72,14 @@
             </OverflowToolbar>
         </subHeader>
         <content>
-         <HBox  class="LoginFormIDM" visible="false" alignItems="Center" alignContent="Center" width="100%" height="85%"
-                justifyContent="Center" 
+            <HBox
+                class="LoginFormIDM"
+                visible="false"
+                alignItems="Center"
+                alignContent="Center"
+                width="100%"
+                height="85%"
+                justifyContent="Center"
                 backgroundDesign="Solid"
                 id="LoginTFormID"
             >
@@ -93,10 +106,15 @@
                     </form:content>
                 </form:SimpleForm>
             </HBox>
-            <HBox class="LoginFormIDM"
+            <HBox
+                class="LoginFormIDM"
                 justifyContent="Center"
                 backgroundDesign="Solid"
-                id="LoginFormIDM"  alignItems="Center" alignContent="Center" width="100%" height="85%"
+                id="LoginFormIDM"
+                alignItems="Center"
+                alignContent="Center"
+                width="100%"
+                height="85%"
             >
                 <form:SimpleForm>
                     <form:content>
@@ -105,23 +123,34 @@
                                 <layout:GridData span="XL12 L12 M12 S12" />
                             </layoutData>
                         </Label>
-                        <Input id="StudentNameID" liveChange="inputPress" />
+                        <Input
+                            id="StudentNameID"
+                            liveChange="inputPress"
+                        />
                         <Label text="Student Email">
                             <layoutData>
                                 <layout:GridData span="XL12 L12 M12 S12" />
                             </layoutData>
                         </Label>
-                        <Input id="StudentEmailID" liveChange="inputPress"  />
+                        <Input
+                            id="StudentEmailID"
+                            liveChange="inputPress"
+                        />
                         <Label text="Student Password">
                             <layoutData>
                                 <layout:GridData span="XL12 L12 M12 S12" />
                             </layoutData>
                         </Label>
-                        <Input id="StudentPassID" liveChange="inputPress" />
+                        <Input
+                            id="StudentPassID"
+                            liveChange="inputPress"
+                        />
                     </form:content>
                 </form:SimpleForm>
             </HBox>
-            <HBox visible="false" id="RegisterFormID"
+            <HBox
+                visible="false"
+                id="RegisterFormID"
                 class="sapUiLargeMarginTop"
                 justifyContent="Center"
                 backgroundDesign="Solid"
@@ -244,6 +273,76 @@
                     </form:content>
                 </form:SimpleForm>
             </HBox>
+             <HBox  id="PaymentId"  visible="false"  backgroundDesign="Transparent" justifyContent="Center" wrap="Wrap" alignContent="Center" alignItems="Center">
+           
+            <!-- <layout:Grid position="Center" containerQuery="true" > -->
+             <f:Card width="300px" height="450px">
+            <f:header>
+            <cards:Header title="Basic"></cards:Header>
+            </f:header>
+            <f:content>
+           <VBox class="sapUiSmallMarginBegin" justifyContent="SpaceBetween" alignContent="SpaceBetween">
+           <VBox >
+            <Title text="₹ 99" level="H1" titleStyle="H1" ></Title>
+            
+            <Text wrappingType="Hyphenated" wrapping="true" text="✔ Access to basic workouts and nutritions plan" class="sapUiLargeMarginTop sapUiSmallMarginEnd"></Text>
+              <Text text="✔ Without AI" class="sapUiSmallMarginTop"></Text>
+                <Text text="✔ Email Supports" class="sapUiSmallMarginTop"></Text>
+                </VBox>
+                <VBox class="sapUiSmallMarginEnd">
+            <ActionListItem text="SELECT A BASIC"></ActionListItem>
+                </VBox>
+            </VBox>  </f:content>
+            </f:Card>
+
+
+              <f:Card width="300px" height="480px" class="sapUiSmallMargin">
+            <f:header>
+            <cards:Header title="Advanced"></cards:Header>
+            </f:header>
+            <f:content>
+           <VBox class="sapUiSmallMarginBegin" justifyContent="SpaceBetween" alignContent="SpaceBetween">
+           <VBox >
+            <Title text="₹ 199" level="H1" titleStyle="H1" ></Title>
+            
+            <Text wrappingType="Hyphenated" wrapping="true" text="✔ Access to standard workouts and nutritions plan" class="sapUiLargeMarginTop sapUiSmallMarginEnd"></Text>
+              <Text text="✔ With AI" class="sapUiSmallMarginTop"></Text>
+                <Text text="✔ Email Supports" class="sapUiSmallMarginTop"></Text>
+                 <Text text="✔ Exculsive access to live Q and A" class="sapUiSmallMarginTop"></Text>
+                </VBox>
+                <VBox class="sapUiSmallMarginEnd">
+            <ActionListItem text="SELECT A ADVANCED"></ActionListItem>
+                </VBox>
+            </VBox>  </f:content>
+            </f:Card>
+
+
+              <f:Card width="300px" height="450px">
+            <f:header>
+            <cards:Header title="Premium"  ></cards:Header>
+            </f:header>
+            <f:content>
+           <VBox class="sapUiSmallMarginBegin" justifyContent="SpaceBetween" alignContent="SpaceBetween">
+           <VBox >
+            <Title text="₹ 299" level="H1" titleStyle="H1" ></Title>
+            
+            <Text wrappingType="Hyphenated" wrapping="true" text="✔ Access to all premium workouts and nutritions plan" class="sapUiLargeMarginTop sapUiSmallMarginEnd"></Text>
+               <Text text="✔ 24X7 priority supoorts" class="sapUiSmallMarginTop"></Text>
+                 <Text text="✔ 1-on-1 virtual coaching session every month" class="sapUiSmallMarginTop"></Text>
+              <Text text="✔ With AI" class="sapUiSmallMarginTop"></Text>
+                <Text text="✔ Email Supports" class="sapUiSmallMarginTop"></Text>
+                </VBox>
+                <VBox class="sapUiSmallMarginEnd">
+            <ActionListItem text="SELECT A PREMIUM"></ActionListItem>
+                </VBox>
+            </VBox>  </f:content>
+            </f:Card>
+            <!-- </layout:Grid> -->
+           
+            </HBox> 
+            <layout:Grid>
+               
+            </layout:Grid>
         </content>
     </Page>
 </mvc:View>

@@ -41,3 +41,9 @@
 .sapMBar .sapMBarRight.sapMBarContainer>*:first-child, .sapMBar .sapMBarLeft.sapMBarContainer>*:first-child, .sapMBar .sapMBarMiddle .sapMBarContainer>*:first-child{
     color: white !important;
 }
+.sapFCard {
+border:1px solid #076eff !important;
+}
+.sapFGLI {
+    border:1px solid #ac87eb !important;
+}
