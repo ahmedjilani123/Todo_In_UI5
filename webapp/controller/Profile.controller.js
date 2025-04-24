@@ -7,6 +7,9 @@ sap.ui.define([
         onInit() {
          
         },
+        Status(sts){
+        return sts;
+        },
         CloseInformationPress(oEvent){
             var model = this.getOwnerComponent().getModel("ColumnLayout");
         model.setData({FLayout:"OneColumn"})

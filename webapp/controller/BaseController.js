@@ -3,6 +3,12 @@ sap.ui.define([
 ],function(Controller){
     "use strict";
     return Controller.extend("td.mastertodo.controller.BaseController", {
+        SWitchThemePress: function (data) {
+            var DesignModel = data.getParameter("state") ? "sap_horizon_dark" : "sap_horizon";
+            sap.ui.getCore().applyTheme(DesignModel);
+            var oModel = this.getView().getModel("ThemeModel");
+            oModel.setProperty("/isDarkMode", data.getParameter("state"));
+        },
         OpenCreateTodoPress() {
             let oView = this.getView();
             this._Dialog ??= new sap.ui.xmlfragment("td.mastertodo.fragments.AddTodo", this);
@@ -46,7 +52,7 @@ sap.ui.define([
       },
       onTodoItemPress(oEvent){
         var model = this.getOwnerComponent().getModel("ColumnLayout");
-        model.setData({FLayout:"TwoColumnsBeginExpanded"})
+        model.setData({FLayout:"TwoColumnsBeginExpanded","data":oEvent.getSource().getBindingContext("TodoData").getObject()})
         model.refresh(true);
     },
     MasterProfilePress(oEvent){

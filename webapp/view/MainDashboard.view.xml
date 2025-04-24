@@ -13,6 +13,12 @@
 							visible="true"/>
 					</customData>
    </Button>
+     <Switch
+                state="{viewModel>/isDarkMode}"
+                change="SWitchThemePress"
+                customTextOff="🌞"
+                customTextOn="🌚"
+            />
    <Avatar displaySize="XS" active="true" displayShape="Circle" initials="AJ" backgroundColor="Accent6" press="AvatarPress"></Avatar>
    </headerContent>
    <content>

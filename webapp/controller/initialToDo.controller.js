@@ -46,12 +46,7 @@ sap.ui.define([
             sap.ui.getCore().applyTheme(theme);
           
         },
-        SWitchThemePress: function (data) {
-            var DesignModel = data.getParameter("state") ? "sap_horizon_dark" : "sap_horizon";
-            sap.ui.getCore().applyTheme(DesignModel);
-            var oModel = this.getView().getModel("ThemeModel");
-            oModel.setProperty("/isDarkMode", data.getParameter("state"));
-        },
+       
         OpenCreateTodoPress(){
             let oView = this.getView();
             this._Dialog ??= new sap.ui.xmlfragment("td.mastertodo.fragments.AddTodo",this);

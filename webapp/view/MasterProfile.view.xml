@@ -118,10 +118,10 @@
 								<m:Text text="June 23, 2018" />
 
 								<m:Label text="Address" />
-								<m:Text text="Orlando, FL" />
+								<m:Text text="Vasna" />
 
 								<m:Label text="Address 2" />
-								<m:Text text="Robotech" />
+								<m:Text text="Paldi" />
 
 								<core:Title text="Configuration Accounts" />
 
@@ -158,31 +158,31 @@
 								<core:Title text="Phone Numbers" />
 
 								<m:Label text="Home"/>
-								<m:Text text="+ 1 415-321-1234" />
+								<m:Text text="98987 78789" />
 
 								<m:Label text="Office phone" />
-								<m:Text text="+ 1 415-321-5555" />
+								<m:Text text="89876 67654" />
 
 								<core:Title text="Social Accounts" />
 
 								<m:Label text="LinkedIn" />
-								<m:Text text="/DeniseSmith" />
+								<m:Text text="/karanjsharma" />
 
 								<m:Label text="Twitter"/>
-								<m:Text text="@DeniseSmith" />
+								<m:Text text="@karanj" />
 
 								<core:Title text="Addresses" />
 
 								<m:Label text="Home Address" />
-								<m:Text text="2096 Mission Street" />
+								<m:Text text="Vijalpur" />
 
 								<m:Label text="Mailing Address" />
-								<m:Text text="PO Box 32114" />
+								<m:Text text="Vijalpur" />
 
 								<core:Title text="Mailing Address" />
 
 								<m:Label text="Work" />
-								<m:Text text="DeniseSmith@sap.com" />
+								<m:Text text="Karanjsharma@gmail.com" />
 							</forms:SimpleForm>
 						</blocks>
 					</ObjectPageSubSection>

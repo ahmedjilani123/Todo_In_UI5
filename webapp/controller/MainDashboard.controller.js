@@ -146,7 +146,7 @@ sap.ui.define([
       fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
-          "Authorization": "Bearer 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",
+          "Authorization": "Bearer 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",
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
