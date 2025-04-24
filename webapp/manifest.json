@@ -95,6 +95,9 @@
       },
       "ColumnLayout":{
           "type": "sap.ui.model.json.JSONModel"
+      },
+      "AIModel":{
+          "type": "sap.ui.model.json.JSONModel"
       }
     },
     "resources": {
@@ -165,6 +168,13 @@
           "target": [
             "ClassroomView"
           ]
+        },
+        {
+          "name": "AI",
+          "pattern": "/ai",
+          "target": [
+            "AI"
+          ]
         }
       ],
       "targets": {
@@ -195,6 +205,10 @@
         "ClassroomView": {
           "id": "Classroom",
           "name": "Classroom"
+        },
+        "AI": {
+          "id": "AI",
+          "name": "AI"
         }
       }
     },

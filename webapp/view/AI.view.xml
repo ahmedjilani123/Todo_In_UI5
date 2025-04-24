@@ -2,5 +2,27 @@
     displayBlock="true"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
+    <Page id="AI" floatingFooter="true" title="TECH BHARAT AI" titleAlignment="Center">
+ 
+ 
+   	<!-- <MessageStrip text="No Response Here" type="Information" class="sapUiSmallMargin" showCloseButton="true"></MessageStrip> -->
+	<List
+		showSeparators="Inner" showNoData="true" noDataText="No Response here, please ask a question !"
+		items="{AIModel>/Data}" >
+		<FeedListItem
+			sender="{AIModel>Request}"
+			icon="sap-icon://employee"
+	
+			info="karan"
+			text="{AIModel>Response}"
+			convertLinksToAnchorTags="All"/>
+	</List>
+      <footer>
+      <OverflowToolbar >
+      <Input width="100%" showValueHelp="true" placeholder="Search Something About Education" valueHelpIconSrc="sap-icon://paper-plane" valueHelpRequest="AIREsponsePress"></Input>
+     
+      </OverflowToolbar>
+      </footer>
    
+    </Page>
 </mvc:View>

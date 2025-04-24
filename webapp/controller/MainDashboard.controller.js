@@ -139,6 +139,10 @@ sap.ui.define([
 //     datachange(){
 // debugger
 //     },
+AiPress(oEvent){
+var router = this.getOwnerComponent().getRouter();
+  router.navTo("AI");
+},
     SearchTaskValuePress(oEvent){
       oEvent.getSource().getParent().getParent().getContent()[0].setBusy(true);
       var prompt = `Title : ${oEvent.getSource().getValue()} , Decription : i want description for this title`

@@ -31,7 +31,10 @@ sap.ui.define([
             var omdeol =this.getModel("ColumnLayout");
             omdeol.setData({FLayout:"OneColumn"})
             omdeol.refresh(true);
-
+            var modelAI = this.getModel("AIModel");
+            var modelAI = this.getModel("AIModel");
+            modelAI.setData({"Data":[]});
+            modelAI.refresh(true);
             // enable routing
             this.getRouter().initialize();
         }
